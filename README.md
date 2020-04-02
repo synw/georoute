@@ -55,7 +55,7 @@ A write queue is available for heavy write loads. It will write batched data eve
 ### Convert a geopoint to line protocol
 
    ```dart
-   final String data = lineProtocolFromGeoPoint(geoPoint);
+   final String data = idb.lineProtocolFromGeoPoint(geoPoint);
    ```
 
 ### Run the example
