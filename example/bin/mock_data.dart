@@ -9,6 +9,7 @@ Future<void> mockTrack(
     int n,
     int timeInterval = 1000}) async {
   n ??= 0;
+  final name = "device_$n";
   final file = File("data/tracks/track_$n.csv");
   final data = file.readAsStringSync();
   final lines = data.split("\n");
@@ -17,9 +18,9 @@ Future<void> mockTrack(
       continue;
     }
     final records = strline.split(",");
-    final ts = DateTime.parse(records[4]).millisecondsSinceEpoch;
+    final ts = DateTime.parse(records[4]).microsecondsSinceEpoch;
     final gp = GeoPoint(
-      name: "${records[0]}",
+      name: name,
       latitude: double.parse(records[1]),
       longitude: double.parse(records[2]),
       timestamp: ts,
