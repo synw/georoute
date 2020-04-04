@@ -52,6 +52,13 @@ A write queue is available for heavy write loads. It will write batched data eve
    idb.push(geoPoint);
    ```
 
+### Read data
+
+   ```dart
+   final List<GeoPoint> geoPoints =
+      await idb.select(start: "-1h", verbose: true);
+   ```
+
 ### Convert a geopoint to line protocol
 
    ```dart
@@ -69,9 +76,15 @@ Add a `conf.dart` file in `example/bin` with your credentials:
    const String influxDbToken = "my_write_token";
    ```
 
-Run:
+Write some data:
 
    ```bash
    cd example
-   dart bin/influxdb.dart
+   dart bin/main.dart -w
+   ```
+
+Read the data:
+
+   ```bash
+   dart bin/main.dart
    ```
